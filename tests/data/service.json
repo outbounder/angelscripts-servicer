@@ -1,0 +1,11 @@
+{
+  "description": "test",
+  "APPLICATION_START": "test.js",
+  "APPLICATION_DIRECTORY": "/home/node/app",
+  "LOG": "/home/node/app/app.js.out",
+  "NODE_BIN_DIR": "/home/node/.nvm/v0.10.24/bin",
+  "NODE_PATH": "/home/node/.nvm/v0.10.24/lib/node_modules",
+  "ENV": [
+    {"KEY": "NODE_ENV", "VALUE":"production"}
+  ]
+}

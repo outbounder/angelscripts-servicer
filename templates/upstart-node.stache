@@ -1,0 +1,29 @@
+#{{start}}.conf
+
+console output
+
+description "{{{description}}}"
+
+# Start the service after everything loaded
+start on {{{startOn}}}
+stop on shutdown
+
+# Automatically restart service
+respawn
+respawn limit 2 5
+
+setuid {{user}}
+
+env NODE_BIN_DIR="{{{NODE_BIN_DIR}}}"
+env NODE_PATH="{{{NODE_PATH}}}"
+
+{{#ENV}}
+env {{{key}}}="{{{value}}}"
+{{/ENV}}
+
+script
+  # Run the script with Node.js and output to a log
+  PATH=$NODE_BIN_DIR:$PATH
+  chdir {{{cwd}}}
+  exec node {{{start}}} 2>&1 >> {{{log}}}
+end script

@@ -1,0 +1,20 @@
+{
+  "name": "angelscripts-servicer",
+  "version": "0.0.0",
+  "description": "Create nodejs apps as services using upstart with forever. Implemetation based on [exratione's post](https://www.exratione.com/2013/02/nodejs-and-forever-as-a-service-simple-upstart-and-init-scripts-for-ubuntu/)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "mustache": "~0.8.1",
+    "organic-angel": "~0.2.8",
+    "underscore": "~1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
