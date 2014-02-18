@@ -35,7 +35,7 @@ module.exports = function(angel) {
       angel.cmdData.dest = "/tmp/upstartscript"
       generateScript(angel, serviceData, function(err){
         if(err) return next(err)
-        exec("scp /tmp/upstartscript "+remote+":/etc/init/"+serviceData.start+".conf", next)
+        exec("scp /tmp/upstartscript "+remote+":/etc/init/"+serviceData.name+".conf", next)
       })
     }
   })

@@ -1,33 +1,41 @@
 # angelscripts-servicer
 
-Create nodejs apps as services using upstart with forever.
-Implemetation based on [exratione's post](https://www.exratione.com/2013/02/nodejs-and-forever-as-a-service-simple-upstart-and-init-scripts-for-ubuntu/)
+Create nodejs apps as services using simple angel command
 
 ## Usage
 
-1. Create ./service.json:
+1. Create ./service.json
 
-    {
-      "description": "My app",
-      "APPLICATION_START": "app.js",
-      "APPLICATION_DIRECTORY": "/home/node/app",
-      "LOG": "/home/node/app/app.js.out",
-      "NODE_BIN_DIR": "/home/node/local/node/bin",
-      "NODE_PATH": "/home/node/local/node/lib/node_modules",
-      "ENV": [{KEY: "NODE_ENV", VALUE:"production"}]
-    }
+        {
+          "name":"my-service",
+          "description": "",
+          "user": "myuser",
+          "start": "node app.js",
+          "cwd": "/home/myuser/myservice",
+          "log": "/home/myuser/myservice/output.log",
+          "startOn": "filesystem and started networking",
+          "forks": false,
+          "NODE_BIN_DIR": "/path/to/bin/with/node",
+          "NODE_PATH": "/path/to/standard/node_modules",
+          "ENV": [
+            { 
+              "key": "HOME", 
+              "value": "/home/myuser"
+            }
+          ]
+        }
 
-2. Wire everything up:
+2. Wire everything up
 
-    $ cd ./myproject
-    $ npm install organic-angel --save-dev
-    $ npm install angelscripts-servicer --save-dev
-    $ sudo node ./node_modules/.bin/angel make service ./service.json /etc/init/app.conf
-    $ sudo start app
+        $ cd ./myservice
+        $ npm install organic-angel --save-dev
+        $ npm install angelscripts-servicer --save-dev
+        $ sudo node ./node_modules/.bin/angel make service ./service.json /etc/init/app.conf
+        $ sudo start app
 
-## When using nvm
+## When using node via nvm
 
-Your package.json could look like this:
+Your package.json could look like this
 
     {
       ...

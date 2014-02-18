@@ -24,11 +24,4 @@ describe("angelscripts-servicer", function(){
       fs.unlink(__dirname+"/data/test.conf", next)
     })
   })
-
-  it("generates upstart script remotely", function(next){
-    angel.do("make service ./service.json root@176.58.101.229", function(err, status){
-      expect(err).toBeFalsy()
-      next()
-    })
-  })
 })

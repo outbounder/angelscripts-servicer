@@ -12,6 +12,10 @@ stop on shutdown
 respawn
 respawn limit 2 5
 
+{{#forks}}
+expect fork
+{{/forks}}
+
 setuid {{user}}
 
 env NODE_BIN_DIR="{{{NODE_BIN_DIR}}}"
@@ -22,8 +26,7 @@ env {{{key}}}="{{{value}}}"
 {{/ENV}}
 
 script
-  # Run the script with Node.js and output to a log
   PATH=$NODE_BIN_DIR:$PATH
   chdir {{{cwd}}}
-  exec node {{{start}}} 2>&1 >> {{{log}}}
+  exec {{{start}}}
 end script

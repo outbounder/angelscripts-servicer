@@ -1,20 +1,30 @@
 {
   "name": "angelscripts-servicer",
-  "version": "0.0.0",
-  "description": "Create nodejs apps as services using upstart with forever. Implemetation based on [exratione's post](https://www.exratione.com/2013/02/nodejs-and-forever-as-a-service-simple-upstart-and-init-scripts-for-ubuntu/)",
+  "version": "0.0.1",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "dependencies": {
     "mustache": "~0.8.1",
-    "organic-angel": "~0.2.8",
     "underscore": "~1.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-node": "~1.13.1",
+    "organic-angel": "~0.2.8"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node ./tests"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "description": "Create nodejs apps as services using simple angel command",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/outbounder/angelscripts-servicer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/outbounder/angelscripts-servicer/issues"
+  },
+  "homepage": "https://github.com/outbounder/angelscripts-servicer"
 }
